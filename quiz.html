@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Recycling Challenge</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      #quiz-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .question {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Recycling Challenge</h1>
+    <div id="quiz-container">
+      <div id="question-container" class="question"></div>
+      <button id="next-button">Next</button>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          question: "What is the first step in recycling?",
+          options: ["Collection", "Sorting", "Processing", "Disposal"],
+          correctAnswer: "Collection",
+        },
+        {
+          question: "Which material is commonly recycled in households?",
+          options: ["Plastic", "Glass", "Metal", "All of the above"],
+          correctAnswer: "All of the above",
+        },
+        {
+          question: "What is composting?",
+          options: [
+            "A method of recycling paper",
+            "A way to dispose of electronic waste",
+            "Decomposing organic waste into nutrient-rich soil",
+            "Creating art from recycled materials",
+          ],
+          correctAnswer: "Decomposing organic waste into nutrient-rich soil",
+        },
+      ];
+
+      const questionContainer = document.getElementById("question-container");
+      const nextButton = document.getElementById("next-button");
+      let currentQuestionIndex = 0;
+
+      function showQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionContainer.innerHTML = `
+          <h2>${currentQuestion.question}</h2>
+          <ul>
+            ${currentQuestion.options
+              .map(
+                (option, index) =>
+                  `<li><input type="radio" name="answer" value="${option}" id="option${index}" /> <label for="option${index}">${option}</label></li>`
+              )
+              .join("")}
+          </ul>
+        `;
+      }
+
+      function showNextQuestion() {
+        const selectedOption = document.querySelector(
+          'input[name="answer"]:checked'
+        );
+        if (selectedOption) {
+          const userAnswer = selectedOption.value;
+          const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+
+          if (userAnswer === correctAnswer) {
+            alert("Correct! 🌟");
+          } else {
+            alert(`Incorrect. The correct answer is: ${correctAnswer}`);
+          }
+
+          currentQuestionIndex++;
+
+          if (currentQuestionIndex < questions.length) {
+            showQuestion();
+          } else {
+            alert("Congratulations! You completed the Recycling Challenge.");
+            questionContainer.innerHTML = "<p>Challenge Completed!</p>";
+            nextButton.style.display = "none";
+          }
+        } else {
+          alert("Please select an answer.");
+        }
+      }
+
+      nextButton.addEventListener("click", showNextQuestion);
+
+      // Initial display
+      showQuestion();
+    </script>
+  </body>
+</html>

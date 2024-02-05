@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        background: #ef62da;
+        min-height: 100vh;
+        padding: 0 10px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .calendar-container {
+        background: #fff;
+        width: 450px;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        position: relative;
+        z-index: 1; /* Ensure the calendar is above other elements */
+      }
+
+      .calendar-container header {
+        display: flex;
+        align-items: center;
+        padding: 25px 30px 10px;
+        justify-content: space-between;
+      }
+
+      .calendar-container header .calendar-navigation {
+        display: flex;
+        cursor: pointer;
+      }
+
+      .calendar-container header .calendar-navigation span {
+        height: 38px;
+        width: 38px;
+        margin: 0 1px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 38px;
+        border-radius: 50%;
+        user-select: none;
+        color: #aeabab;
+        font-size: 1.9rem;
+      }
+
+      .calendar-container header .calendar-navigation span:hover {
+        background: #f2f2f2;
+      }
+
+      .calendar-container header .calendar-current-date {
+        font-weight: 500;
+        font-size: 1.45rem;
+      }
+
+      .calendar-container .calendar-body {
+        padding: 20px;
+      }
+
+      .calendar-container .calendar-body ul {
+        list-style: none;
+        flex-wrap: wrap;
+        display: flex;
+        text-align: center;
+      }
+
+      .calendar-container .calendar-body .calendar-dates {
+        margin-bottom: 20px;
+      }
+
+      .calendar-container .calendar-body li {
+        width: calc(100% / 7);
+        font-size: 1.07rem;
+        color: #414141;
+        cursor: pointer;
+      }
+
+      .calendar-container .calendar-body .calendar-weekdays li {
+        cursor: default;
+        font-weight: 500;
+      }
+
+      .calendar-container .calendar-body .calendar-dates li {
+        margin-top: 30px;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .calendar-container .calendar-dates li.inactive {
+        color: #aaa;
+      }
+
+      .calendar-container .calendar-dates li.active {
+        color: #fff;
+      }
+
+      .calendar-container .calendar-dates li::before {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .calendar-container .calendar-dates li.active::before {
+        background: #6332c5;
+      }
+
+      .calendar-container .calendar-dates li:not(.active):hover::before {
+        background: #e4e1e1;
+      }
+
+      /* Popup styles */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 300px; /* Adjust the width as needed */
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse; /* Change the direction to reverse */
+        z-index: 2; /* Ensure the popup is above the calendar */
+      }
+
+      .popup-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calendar-container">
+      <header class="calendar-header">
+        <div class="calendar-navigation" onclick="changeMonth(-1)">
+          <span>&lt;</span>
+        </div>
+        <p class="calendar-current-date"></p>
+        <div class="calendar-navigation" onclick="changeMonth(1)">
+          <span>&gt;</span>
+        </div>
+      </header>
+      <div class="calendar-body">
+        <ul class="calendar-weekdays">
+          <li>Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+        </ul>
+        <ul class="calendar-dates"></ul>
+      </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="eventPopup" class="popup">
+      <div class="popup-content">
+        <h2>Event Details</h2>
+        <p>Event: Recycling Drive</p>
+        <p>Location: Shahdara, Delhi</p>
+        <button onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      let date = new Date();
+      let year = date.getFullYear();
+      let month = date.getMonth();
+
+      const day = document.querySelector(".calendar-dates");
+      const currdate = document.querySelector(".calendar-current-date");
+
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      const manipulate = () => {
+        let dayone = new Date(year, month, 1).getDay();
+        let lastdate = new Date(year, month + 1, 0).getDate();
+        let dayend = new Date(year, month, lastdate).getDay();
+        let monthlastdate = new Date(year, month, 0).getDate();
+
+        let lit = "";
+
+        // loop to add the last dates of the previous month
+        for (let i = dayone; i > 0; i--) {
+          lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
+        }
+
+        // loop to add the dates of the current month
+        for (let i = 1; i <= lastdate; i++) {
+          let isToday =
+            i === date.getDate() &&
+            month === new Date().getMonth() &&
+            year === new Date().getFullYear()
+              ? "active"
+              : "";
+          lit += `<li class="${isToday}" onclick="showEventPopup(${i})">${i}</li>`;
+        }
+
+        // loop to add the first dates of the next month
+        for (let i = dayend; i < 6; i++) {
+          lit += `<li class="inactive">${i - dayend + 1}</li>`;
+        }
+
+        currdate.innerText = `${months[month]} ${year}`;
+        day.innerHTML = lit;
+      };
+
+      const changeMonth = (offset) => {
+        month += offset;
+
+        if (month < 0) {
+          year--;
+          month = 11;
+        } else if (month > 11) {
+          year++;
+          month = 0;
+        }
+
+        date = new Date(year, month, 1);
+        manipulate();
+      };
+
+      const showEventPopup = (day) => {
+        const popup = document.getElementById("eventPopup");
+        popup.style.display = "flex";
+      };
+
+      const closePopup = () => {
+        const popup = document.getElementById("eventPopup");
+        popup.style.display = "none";
+      };
+
+      manipulate();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Tracker and Leaderboard</title>
+  <link rel="stylesheet" type="text/css" href="challenge.css">
+</head>
+<body>
+    <div class="box">
+
+<div class="tasks">
+    <h1>Task Tracker</h1>
+  <label>
+    <input type="checkbox" class="task" data-points="15"> Upcycling Challenge (+15 points)
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" class="task" data-points="25"> Community Cleanup (+25 points)
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" class="task" data-points="30"> Beach Cleanup (+30 points)
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" class="task" data-points="35"> Eco Workshop (+35 points)
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" class="task" data-points="45"> Tree Plantation (+45 points)
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" class="task" data-points="60"> Recycling Drive (+60 points)
+  </label>
+  <br>
+  <button onclick="addPoints()">Add Points</button>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="leaderboard">
+<h1>Leaderboard</h1>
+<table id="leaderboard">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody id="leaderboardBody">
+    <!-- Leaderboard rows will be inserted here -->
+  </tbody>
+</table>
+</div>
+</div>
+
+<script>
+    // Define an array to store participants and their points
+let participants = [];
+
+// Function to update the leaderboard
+function updateLeaderboard() {
+  // Clear the current leaderboard
+  document.getElementById('leaderboardBody').innerHTML = '';
+
+  // Sort participants by points in descending order
+  participants.sort((a, b) => b.points - a.points);
+
+  // Add participants to the leaderboard
+  participants.forEach(participant => {
+    let row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${participant.name}</td>
+      <td>${participant.points}</td>
+    `;
+    document.getElementById('leaderboardBody').appendChild(row);
+  });
+}
+
+// Function to add points when the "Add Points" button is clicked
+function addPoints() {
+  let totalPoints = 0;
+  let name = prompt('Enter your name:');
+  if (name) {
+    // Calculate total points based on checked tasks
+    document.querySelectorAll('.task:checked').forEach(checkbox => {
+      totalPoints += parseInt(checkbox.dataset.points);
+      // Uncheck the checkbox after adding points
+      checkbox.checked = false;
+    });
+
+    // Add the participant to the array if not already present
+    let participant = participants.find(p => p.name === name);
+    if (!participant) {
+      participant = {
+        name: name,
+        points: 0
+      };
+      participants.push(participant);
+    }
+    // Increment points for the participant
+    participant.points += totalPoints;
+
+    // Update the leaderboard
+    updateLeaderboard();
+  }
+}
+
+</script>
+</body>
+</html>
