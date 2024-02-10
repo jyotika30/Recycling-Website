@@ -1,73 +1,74 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body {
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    background-color: #09ea81;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .box {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    width:35vw;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust the alpha (opacity) value to make it lighter */
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  .tasks {
-    margin-bottom: 20px;
-  }
-  
-  .tasks label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color:rgb(29, 103, 114);
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0f3671;
-  }
-  
-  #leaderboard {
-    margin: 0 auto;
-    border-collapse: collapse;
-    width: 50%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
-  
-  #leaderboard th, #leaderboard td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #leaderboard th {
-    background-color: #ac58b9;
-    color: white;
-  }
-  
-  #leaderboard tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  #leaderboard tr:hover {
-    background-color: #ddd;
-  }
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  background-color: #09ea81;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 35vw;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust the alpha (opacity) value to make it lighter */
+}
+
+h1 {
+  color: #333;
+}
+
+.tasks {
+  margin-bottom: 20px;
+}
+
+.tasks label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(29, 103, 114);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0f3671;
+}
+
+#leaderboard {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+#leaderboard th,
+#leaderboard td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#leaderboard th {
+  background-color: #ac58b9;
+  color: white;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#leaderboard tr:hover {
+  background-color: #ddd;
+}

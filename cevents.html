@@ -1,8 +1,14 @@
- 
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+
     <title>Community Events</title>
     <style>
       * {
@@ -30,20 +36,19 @@
       header {
         text-align: center;
         margin-bottom: 20px;
-        color: #fff;
+        color: #e7f0e7; /* Updated font color to green */
       }
 
 
       header h1 {
-        font-size: 2rem;
-        color: #e3eee3; /* Black color for the heading */
-        font-weight: bold; /* Bold font weight for the heading */
+        font-size: 2.8rem; /* Increased font size */
+        font-weight: bold;
       }
 
 
       header p {
-        font-size: 1.2rem;
-        color: #ddd;
+        font-size: 1.6rem;
+        color: #fdf3f3;
       }
 
 
@@ -65,13 +70,13 @@
 
       .event-item {
         background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #4caf50; /* Green border */
+        border: 2px solid #4caf50;
         border-radius: 10px;
         padding: 15px;
         cursor: pointer;
         transition: transform 0.3s;
-        width: 200px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        width: 250px; /* Increased card size */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       }
 
 
@@ -94,10 +99,29 @@
       }
 
 
+      /* Use buttons for date and location */
       .event-item .event-date,
       .event-item .event-location {
-        color: #333;
-        font-size: 0.9rem;
+        display: inline-block;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 5px 10px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+
+      .event-item .event-date:hover,
+      .event-item .event-location:hover {
+        background-color: #45a049;
+      }
+
+
+      .event-item.animate__animated {
+        animation-duration: 1s;
       }
     </style>
   </head>
@@ -120,8 +144,8 @@
           <div class="event-description">
             Join us for a recycling drive in Shahdara, Delhi.
           </div>
-          <div class="event-date">Date: 2024-02-10</div>
-          <div class="event-location">Location: Shahdara, Delhi</div>
+          <button class="event-date">Date: 2024-02-10</button>
+          <button class="event-location">Location: Shahdara, Delhi</button>
         </div>
 
 
@@ -134,8 +158,8 @@
             Help us keep our community clean by participating in a cleanup
             activity.
           </div>
-          <div class="event-date">Date: 2024-02-15</div>
-          <div class="event-location">Location: Community Park</div>
+          <button class="event-date">Date: 2024-02-15</button>
+          <button class="event-location">Location: Community Park</button>
         </div>
 
 
@@ -147,8 +171,8 @@
           <div class="event-description">
             Contribute to the environment by planting trees together.
           </div>
-          <div class="event-date">Date: 2024-02-20</div>
-          <div class="event-location">Location: Green Belt Area</div>
+          <button class="event-date">Date: 2024-02-20</button>
+          <button class="event-location">Location: Green Belt Area</button>
         </div>
 
 
@@ -160,8 +184,8 @@
           <div class="event-description">
             Learn about sustainable living in our eco workshop.
           </div>
-          <div class="event-date">Date: 2024-02-25</div>
-          <div class="event-location">Location: Community Center</div>
+          <button class="event-date">Date: 2024-02-25</button>
+          <button class="event-location">Location: Community Center</button>
         </div>
       </div>
 
@@ -175,8 +199,8 @@
           <div class="event-description">
             Turn old items into new treasures in our upcycling challenge.
           </div>
-          <div class="event-date">Date: 2024-03-01</div>
-          <div class="event-location">Location: Art Studio</div>
+          <button class="event-date">Date: 2024-03-01</button>
+          <button class="event-location">Location: Art Studio</button>
         </div>
 
 
@@ -188,12 +212,9 @@
           <div class="event-description">
             Explore and support local sustainable products at our green market.
           </div>
-          <div class="event-date">Date: 2024-03-05</div>
-          <div class="event-location">Location: Market Square</div>
+          <button class="event-date">Date: 2024-03-05</button>
+          <button class="event-location">Location: Market Square</button>
         </div>
-
-
-        <!-- Add more event items here -->
 
 
         <div
@@ -204,8 +225,8 @@
           <div class="event-description">
             Join us for a beach cleanup to protect marine life.
           </div>
-          <div class="event-date">Date: 2024-03-10</div>
-          <div class="event-location">Location: Sunset Beach</div>
+          <button class="event-date">Date: 2024-03-10</button>
+          <button class="event-location">Location: Sunset Beach</button>
         </div>
 
 
@@ -217,8 +238,8 @@
           <div class="event-description">
             Help in maintaining our community garden.
           </div>
-          <div class="event-date">Date: 2024-03-15</div>
-          <div class="event-location">Location: Community Garden</div>
+          <button class="event-date">Date: 2024-03-15</button>
+          <button class="event-location">Location: Community Garden</button>
         </div>
       </div>
     </div>
@@ -233,4 +254,5 @@
     </script>
   </body>
 </html>
+
 

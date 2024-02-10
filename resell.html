@@ -9,6 +9,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+        font-size: medium;
       }
 
 
@@ -19,7 +20,9 @@
         justify-content: center;
         background-color: #f0f0f0;
         padding: 20px;
+        background-image: url(https://images4.alphacoders.com/107/thumb-1920-107118.jpg);
       }
+      
 
 
       header {
@@ -29,12 +32,14 @@
 
 
       header h1 {
-        color: #333;
+        color: #fefdfd;
+        font-weight: bold;
+        font-size: 3rem;
       }
 
 
       header p {
-        color: #666;
+        color: #ffffff;
       }
 
 
@@ -51,24 +56,38 @@
 
 
       #categories button {
-        margin-right: 10px; /* Adjust the margin as needed */
+        margin-right: 10px;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+
+      #categories button:hover {
+        background-color: #000;
+        color: #fff;
       }
 
 
       #item-listings {
         display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
+        gap: 30px;
+        margin-bottom: 30px;
       }
 
 
       .item-card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 15px;
+        background-color: #ecf0f1;
+        border: 2px solid #0f1111;
+        border-radius: 15px;
+        padding: 20px;
         transition: transform 0.3s;
         cursor: pointer;
+        width: 250px;
       }
 
 
@@ -80,42 +99,75 @@
       .item-card img {
         max-width: 100%;
         height: auto;
-        border-radius: 8px;
-        margin-bottom: 10px;
+        border-radius: 12px;
+        margin-bottom: 15px;
       }
 
 
       .item-card h3 {
-        color: #333;
-        font-size: 1.2rem;
-        margin-bottom: 5px;
+        color: #2c3e50;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
       }
 
 
       .item-card p {
         color: #666;
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-      }
-
-
-      .item-card button {
-        margin-top: 10px;
-        text-decoration: none !important;
-        color: #fff !important;
-      }
-
-
-      .item-card button:hover {
-        background-color: #522aa8;
-      }
-
-
-      .item-card span {
-        color: #333;
-        font-weight: bold;
         font-size: 1rem;
+        margin-bottom: 15px;
+      }
+
+
+      .item-card button,
+      .item-card a {
+        margin-top: 15px;
+        text-decoration: none !important;
+       
+      
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 12px;
         display: block;
+      }
+
+
+      .item-card button:hover,
+.item-card a:hover {
+  background-color: #fffdfd;
+  color: #fff;
+  border: 2px solid #fff;
+  text-decoration: none;
+  font-size: 0.9rem; /* Adjust the font size */
+  padding: 1px 1px; /* Adjust the padding */
+}
+
+
+
+      /* Remove the border and padding from the anchor inside the button */
+      .item-card button a {
+        display: block;
+        padding: 0;
+        border: none;
+      }
+
+
+      /* Add the border and padding directly to the anchor */
+      .item-card a {
+        display: block;
+        padding: 12px;
+        border: 2px solid #000;
+        border-radius: 8px;
+        text-decoration: none !important;
+        color: #000;
+      }
+
+
+      .item-card a:hover {
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #fff;
+        text-decoration: none;
       }
 
 
@@ -124,28 +176,30 @@
         width: 100%;
         background-color: #fff;
         border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
+        border-radius: 15px;
+        padding: 30px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
 
       #listing-form h2 {
-        color: #333;
-        margin-bottom: 20px;
+        color: #2c3e50;
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
       }
 
 
       form {
         display: grid;
-        gap: 15px;
+        gap: 20px;
       }
 
 
       label {
         color: #333;
-        font-size: 0.9rem;
-        margin-bottom: 5px;
+        font-size: 1rem;
+        margin-bottom: 10px;
         display: block;
       }
 
@@ -153,28 +207,54 @@
       input,
       textarea {
         width: 100%;
-        padding: 10px;
+        padding: 15px;
         border: 1px solid #ddd;
-        border-radius: 5px;
+        border-radius: 8px;
         font-size: 1rem;
       }
 
 
       button {
-        background-color: #0d631d;
+        background-color: rgb(243, 243, 243);
         color: #fff;
-        padding: 10px;
+        padding: 15px;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
         font-size: 1rem;
       }
 
 
       button:hover {
-        background-color: #522aa8;
+        background-color: #27ae60;
+      }
+
+
+      .item-card a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #000;
+        border: 2px solid #000;
+        border-radius: 8px;
+        padding: 12px;
+        display: block;
+      }
+
+
+      .item-card a:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+
+      /* Remove underline and purple color from anchor within item-card */
+      .item-card button a {
+        text-decoration: none;
+        color: inherit;
       }
     </style>
+
+
     <script
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
@@ -182,9 +262,82 @@
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
-          { pageLanguage: "en", autoDisplay: false },
+          {
+            pageLanguage: "en",
+            autoDisplay: false,
+          },
           "google_translate_element"
         );
+      }
+
+
+      // Array to store item listings
+      var itemDetails = [];
+
+
+      // Function to dynamically add items to the top of the list
+      function addListing() {
+        var itemName = document.getElementById("itemName").value;
+        var itemDescription = document.getElementById("itemDescription").value;
+        var itemPrice = document.getElementById("itemPrice").value;
+        var itemCategory = document.getElementById("itemCategory").value;
+
+
+        if (!itemName || !itemDescription || !itemPrice || !itemCategory) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+
+        // Create a new item object
+        var newItem = {
+          name: itemName,
+          description: itemDescription,
+          price: itemPrice,
+          category: itemCategory,
+        };
+
+
+        // Add the new item to the beginning of the array
+        itemDetails.unshift(newItem);
+
+
+        // Render the updated item listings
+        renderItems();
+
+
+        // Clear input fields
+        document.getElementById("itemName").value = "";
+        document.getElementById("itemDescription").value = "";
+        document.getElementById("itemPrice").value = "";
+      }
+
+
+      // Function to render item listings
+      function renderItems() {
+        var itemListings = document.getElementById("item-listings");
+
+
+        // Iterate through itemDetails array and create HTML for each item
+        for (var i = 0; i < itemDetails.length; i++) {
+          var item = itemDetails[i];
+
+
+          // Create a new item card
+          var itemCard = document.createElement("div");
+          itemCard.className = "item-card";
+          itemCard.innerHTML = `
+          <img src="placeholder-image.jpg" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <span>${item.price}</span>
+          <button onclick="buyNow(${i})"><a href="payment.html">Buy Now</a></button>
+        `;
+
+
+          // Append the item card to the list
+          itemListings.appendChild(itemCard);
+        }
       }
     </script>
   </head>
@@ -192,7 +345,7 @@
 
   <body>
     <header>
-      <h1>Community Marketplace</h1>
+      <h1 style="color: #fdfdfd">Community Marketplace</h1>
       <p>Share items you no longer need and find treasures from others.</p>
     </header>
 
@@ -226,37 +379,28 @@
       <div class="item-card">
         <img src="th.jpg" alt="Item 1" />
         <h3>Vintage Bicycle</h3>
-        <button>Rs 2000</button>
-        <br />
-        <!-- Link to payment.html when the "Buy Now" button is clicked -->
-
-
-        <button style="color: white;"><a href="payment.html" style="color: inherit; text-decoration: none;">Buy Now</a></button>
-
+        <span>$100</span>
+        <button><a href="payment.html">Buy Now</a></button>
       </div>
 
 
       <div class="item-card" onclick="showItemDetails(2)">
-        <img src="blender.jpg" alt="Item 2" height="100" width="200" />
+        <img src="blender.jpg" alt="Item 2" height="150" width="250" />
         <h3>Unused Blender</h3>
-        <button>Rs 300</button>
-        <br />
-        <button style="color: white;"><a href="payment.html" style="color: inherit; text-decoration: none;">Buy Now</a></button>
+        <span>$50</span>
+        <button><a href="payment.html">Buy Now</a></button>
       </div>
       <div class="item-card" onclick="showItemDetails(3)">
-        <img src="table.jpg" alt="Item 3" height="200" width="200" />
+        <img src="table.jpg" alt="Item 3" height="250" width="250" />
         <h3>Table for 4</h3>
-        <button>Rs 500</button>
-
-
-        <br />
-        <button style="color: white;"><a href="payment.html" style="color: inherit; text-decoration: none;">Buy Now</a></button>
+        <span>$120</span>
+        <button><a href="payment.html">Buy Now</a></button>
       </div>
     </div>
 
 
     <div id="listing-form">
-      <h2>List an Item</h2>
+      <h2 style="color: #2c3e50">List an Item</h2>
       <form>
         <label for="itemName">Item Name:</label>
         <input type="text" id="itemName" name="itemName" required />
