@@ -18,7 +18,15 @@ function sendMessage() {
       botResponse = "Recycling is the process of converting waste materials into reusable materials to prevent them from ending up in landfills.";
     } else if (userInput.toLowerCase().includes("how to manage waste")) {
       botResponse = "To manage waste effectively, you can reduce, reuse, and recycle materials whenever possible. Additionally, proper disposal methods such as composting organic waste and using designated recycling facilities can help.";
-    } else {
+    }else if (userInput.toLowerCase().includes("is glass recyclable")) {
+      botResponse = "Glass is 100% recyclable and can be recycled endlessly without losing quality";
+   }else if (userInput.toLowerCase().includes("recycling process")) {
+      botResponse = "To recycle, you can separate materials like paper, glass, and plastic and place them in designated recycling bins.";
+      }else if (userInput.toLowerCase().includes("what happens to recycled paper")) {
+      botResponse = "Recycled paper can be turned into new paper products through a pulping process.";
+        }else if (userInput.toLowerCase().includes("what is the impact of recycling on climate change")) {
+      botResponse = "Recycling is important because it reduces the amount of waste in landfills and helps combat pollution.";
+      }else {
       botResponse = "I'm sorry, I don't understand that question.";
     }
   
