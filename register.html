@@ -151,60 +151,70 @@
         </div>
     </nav>
     
-
-<div class="container">	
-    <div class="row">
-        <!-- Registration Form Column -->
-        <div class="col-sm-6">
-            <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter your first name">
+    <section class="register" >
+        <div class="container" style="background-image: url('back_challenge.jpg'); background-size: cover;">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4">Register</h2>
+                            <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="first_name" class="form-label">First Name</label>
+                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter your first name">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter your last name">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter your age">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="locality" class="form-label">Locality</label>
+                                    <input type="text" name="locality" id="locality" class="form-control" placeholder="Enter your locality">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select name="category" id="category" class="form-control">
+                                        <option value="individual">Individual</option>
+                                        <option value="organization">Organization</option>
+                                        <option value="company">Company</option>
+                                    </select>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="phone_number" class="form-label">Phone Number</label>
+                                    <input type="tel" name="phone_number" id="phone_number" class="form-control" placeholder="Enter your phone number">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                                </div>
+    
+                                <button type="button" id="register" name="register" class="btn btn-success btn-lg btn-block">Register Now</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter your last name">
-                </div>
-
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter your age">
-                </div>
-
-                <div class="form-group">
-                    <label for="locality">Locality</label>
-                    <input type="text" name="locality" id="locality" class="form-control" placeholder="Enter your locality">
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select name="category" id="category" class="form-control">
-                        <option value="individual">Individual</option>
-                        <option value="organization">Organization</option>
-                        <option value="company">Company</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone_number">Phone Number</label>
-                    <input type="tel" name="phone_number" id="phone_number" class="form-control" placeholder="Enter your phone number">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
-                </div>
-
-                <div class="form-group">
-                    <label for="password" >Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
-                </div>
-                
-                <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
-            </form>
-        </div><!-- End Registration Form Column -->
-        <br>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <br>
         <!-- Login Form Column 
         <div class="col-sm-6">
              Login Form Here -->
@@ -220,6 +230,7 @@
              <p>&nbsp;</p>
              <p>&nbsp;</p>
              <p>&nbsp;</p>
+             <section class="login">
             <form name="login_form" id="login_form" class="center-text" method="post" action="#" enctype="multipart/form-data" >
                 <div class="col-sm-4">
                     <div class="form-group">
@@ -236,9 +247,10 @@
         </div><!-- End Login Form Column -->
     </div><!-- End Row -->
 </div><!-- End Container -->
+</section>
 
   <br>
-  <center>Developed by <a href="https://shinerweb.com/">Shinerweb</a></center>
+  <center>Developed by <a href="index.html">Shinerweb</a></center>
   
 
 
@@ -291,6 +303,7 @@
               console.log(user);
               alert("Registration successfully!!");
               // ...
+              window.location.href = "index.html";
             })
             .catch((error) => {
               const errorCode = error.code;

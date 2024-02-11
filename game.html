@@ -8,6 +8,12 @@
   </head>
 
   <body>
+        <script>
+    // Include the navbar using JavaScript
+    document.write('<div id="navbar-placeholder"></div>');
+    document.getElementById('navbar-placeholder').innerHTML =
+        '<object type="text/html" data="navbar.html" ></object>';
+</script>
     <div class="container">
       <div id="dynamic-cards" class="game-container">
         <div class="heading-container">
@@ -174,7 +180,16 @@
         </div>
       </div>
     </div>
+    <!-- Add this within the <body> of your HTML -->
+<div id="popup-container" class="popup-container hidden">
+  <div class="popup-content">
+ 
+    <p>To recycle glass bottles, adhere to local guidelines, separate colors, remove caps, and rinse before using designated drop-off centers or curbside services. Utilize deposit return programs if available. Dispose in regular trash if recycling isn't an option, or consider creative reuse. Properly handle hazardous materials through specialized services, following local regulations.</p>
+  </div>
+</div>
+
 
     <script src="game.js"></script>
+
   </body>
-</html>
+</html>  
