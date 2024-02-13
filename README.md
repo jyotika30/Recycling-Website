@@ -1,4 +1,4 @@
-# SustainHub Website
+# SustainHub website
 
 Welcome to the website! This platform encourages eco-friendly activities and challenges to promote environmental awareness. Participate in various tasks, earn points, and climb the leaderboard by making a positive impact on the environment.
 
